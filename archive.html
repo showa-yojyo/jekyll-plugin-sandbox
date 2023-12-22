@@ -1,0 +1,14 @@
+---
+layout: page
+title: Archives
+permalink: /archive/
+---
+
+{%- assign date_min = site.posts[-1].date -%}
+{%- assign year_first = date_min | date: '%Y' -%}
+{%- assign year_last = site.posts[0].date | date: '%Y' -%}
+<ul>
+  {% for i in (year_first..year_last) %}
+  <li><a href="./{{ i }}/">{{ i }} 年</a></li>
+  {%- endfor %}
+</ul>

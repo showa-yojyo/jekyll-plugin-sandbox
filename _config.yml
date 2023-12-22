@@ -22,17 +22,20 @@ github_username: showa-yojyo
 # Build settings
 theme: minima
 plugins:
+  - jekyll-archives
   - jekyll-feed
 
 minima:
   date_format: "%Y-%m-%d (%a)"
+header_pages:
+  - about.md
+  - archive.html
 
 lang: ja
 
 repository: https://github.com/showa-yojyo/jekyll-plugin-sandbox
 rss: Feed
 show_excerpts: true
-
 
 kramdown:
   remove_line_breaks_for_cjk: true
@@ -56,3 +59,24 @@ kramdown:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Archives
+
+jekyll-archives:
+  enabled:
+    - year
+  layouts:
+    year: year-archive
+  permalinks:
+    year: '/archive/:year/'
+    category: '/category/:name/'
+
+defaults:
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      author: "showa-yojyo"
+      categories:
+        - diary
+      layout: post
